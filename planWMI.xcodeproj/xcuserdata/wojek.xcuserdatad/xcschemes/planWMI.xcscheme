@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0710"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51DCB5B31DA2EAC6008A8D69"
+               BlueprintIdentifier = "5196840E1DAFF36D00851452"
                BuildableName = "planWMI.app"
                BlueprintName = "planWMI"
                ReferencedContainer = "container:planWMI.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51DCB5CC1DA2EAC7008A8D69"
+               BlueprintIdentifier = "519684221DAFF36D00851452"
                BuildableName = "planWMITests.xctest"
                BlueprintName = "planWMITests"
                ReferencedContainer = "container:planWMI.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51DCB5D71DA2EAC7008A8D69"
+               BlueprintIdentifier = "5196842D1DAFF36D00851452"
                BuildableName = "planWMIUITests.xctest"
                BlueprintName = "planWMIUITests"
                ReferencedContainer = "container:planWMI.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "51DCB5B31DA2EAC6008A8D69"
+            BlueprintIdentifier = "5196840E1DAFF36D00851452"
             BuildableName = "planWMI.app"
             BlueprintName = "planWMI"
             ReferencedContainer = "container:planWMI.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "51DCB5B31DA2EAC6008A8D69"
+            BlueprintIdentifier = "5196840E1DAFF36D00851452"
             BuildableName = "planWMI.app"
             BlueprintName = "planWMI"
             ReferencedContainer = "container:planWMI.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "51DCB5B31DA2EAC6008A8D69"
+            BlueprintIdentifier = "5196840E1DAFF36D00851452"
             BuildableName = "planWMI.app"
             BlueprintName = "planWMI"
             ReferencedContainer = "container:planWMI.xcodeproj">

@@ -8,6 +8,8 @@ PODS:
   - RxCocoa (3.0.0-beta.2):
     - RxSwift (~> 3.0.0-beta.2)
   - RxSwift (3.0.0-beta.2)
+  - SwiftDate (4.0.10)
+  - XLPagerTabStrip (6.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -16,6 +18,8 @@ DEPENDENCIES:
   - ObjectMapper (~> 2.1)
   - RxCocoa (= 3.0.0-beta.2)
   - RxSwift (= 3.0.0-beta.2)
+  - SwiftDate (~> 4.0)
+  - XLPagerTabStrip (= 6.0)
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
@@ -24,7 +28,9 @@ SPEC CHECKSUMS:
   ObjectMapper: e5e0f8aef8590fc2ddcde7f27eddb255863ee6e9
   RxCocoa: 1dd105d8a4e18034ccd7bd6d136445363ce67c8e
   RxSwift: 0ea939d7d97cb70657190ffde8dc2a9b455778fc
+  SwiftDate: efdff69cf3750c2e4ef4fb9f0461e22b40c4c942
+  XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: 6410bd596fa1ca03a2d3783c53732450391ed787
+PODFILE CHECKSUM: 4249f1a82111bdd28285eb34ca6de7b92b15ecd7
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.1.1

@@ -13,6 +13,26 @@ import RxCocoa
 import RxSwift
 import Dollar
 
+extension Array {
+    
+    func groupBy<G: Hashable>(groupClosure: (Element) -> G) -> [G: [Element]] {
+        var dictionary = [G: [Element]]()
+        
+        for element in self {
+            let key = groupClosure(element)
+            var array: [Element]? = dictionary[key]
+            
+            if (array == nil) {
+                array = [Element]()
+            }
+            
+            array!.append(element)
+            dictionary[key] = array!
+        }
+        
+        return dictionary
+    }
+}
 class ViewController: UIViewController {
     var kierunki: [String] = []
     var lata: [String] = []
@@ -21,6 +41,7 @@ class ViewController: UIViewController {
     var selectedgroup : String = ""
     var selectedrok : String = ""
     var schedules : [Schedule] = []
+    var meetings : [Int: [Schedule]] = [:]
     
     
     @IBOutlet weak var kierunek: UIButton!
@@ -28,20 +49,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var group: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let URL = "https://wmitimetable.herokuapp.com/schedules.json"
-        Alamofire.request(URL).responseArray{ (response: DataResponse<[Schedule]>) in
-            let resp = response.result.value
-            if let resp = resp {
-                for r in resp {
-                    if self.kierunki.contains(r.study!) == false{
-                        self.kierunki.append(r.study!)
-                    }
-                    self.schedules.append(r)
-                }
-                self.setKierunek(kierunek: self.kierunki[0])
-            }
-        }
-        navigationController?.navigationBar.isHidden = true
+                navigationController?.navigationBar.isHidden = true
     
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -109,15 +117,17 @@ class ViewController: UIViewController {
             let viewController:ShowLessonsController = (segue.destination as? ShowLessonsController)!
             viewController.xs = [:]
             var sched:[Schedule] = schedules.filter({$0.study == self.selectedkierunek && ($0.group == self.selectedgroup || $0.group == "1WA") && $0.year == self.selectedrok})
-            sched.sort(by: {$0.when! < $1.when!})
-            for sch:Schedule in sched{
-                if viewController.xs?[sch.getDateString()] == nil{
-                    viewController.xs?[sch.getDateString()] = [sch]
-                }else{
-                    viewController.xs?[sch.getDateString()]?.append(sch)
+            sched.sort(by: {($0.when! < $1.when!)})
+            self.meetings = [:]
+            for r in sched{
+                if self.meetings[r.getWeekOfYear()] == nil{
+                    self.meetings[r.getWeekOfYear()] = []
                 }
+                (self.meetings[r.getWeekOfYear()])!.append(r)
             }
-            viewController.delegate = self
+            viewController.delegatectrl = self
+            
+            viewController.meetings = self.meetings
         }
         
     }

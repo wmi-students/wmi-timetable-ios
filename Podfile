@@ -8,4 +8,6 @@ target 'planWMI' do
   pod 'RxSwift',    '3.0.0-beta.2'
   pod 'RxCocoa',    '3.0.0-beta.2'
   pod 'Dollar'
+  pod 'XLPagerTabStrip', '6.0'
+  pod 'SwiftDate', '~> 4.0'
 end

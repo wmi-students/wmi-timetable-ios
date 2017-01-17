@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import SwiftDate
 
 class Schedule : Mappable{
     var subject : String?
@@ -49,4 +50,12 @@ class Schedule : Mappable{
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: when!)
-    }}
+    }
+    func getWeekOfYear() -> Int{
+        let regionRome = Region(tz: TimeZoneName.europeWarsaw, cal: CalendarName.gregorian, loc: LocaleName.polishPoland)
+        var date = try! DateInRegion(absoluteDate: when!,in: regionRome)
+       
+        let whn =  date - 1.day
+        return ((whn.year)*100)+(whn.weekOfYear)
+    }
+}

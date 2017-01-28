@@ -33,7 +33,7 @@ extension Array {
         return dictionary
     }
 }
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     var kierunki: [String] = []
     var lata: [String] = []
     var grupy: [String] = []
@@ -42,17 +42,20 @@ class ViewController: UIViewController {
     var selectedrok : String = ""
     var schedules : [Schedule] = []
     var meetings : [Int: [Schedule]] = [:]
-    
-    
+    var delegate : LessonsViewController? = nil
+
     @IBOutlet weak var kierunek: UIButton!
     @IBOutlet weak var rok: UIButton!
     @IBOutlet weak var group: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
                 navigationController?.navigationBar.isHidden = true
-    
         // Do any additional setup after loading the view, typically from a nib.
-        
+        if delegate?.kierunek == nil{
+            setKierunek(kierunek: kierunki[0])
+        }else{
+            setKierunek(kierunek: (delegate?.kierunek)!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +72,11 @@ class ViewController: UIViewController {
                 self.lata.append(sched.year!)
             }
         }
-        self.setRok(rok: self.lata[0])
+        if delegate?.rok == nil {
+            self.setRok(rok: self.lata[0])
+        }else{
+            self.setRok(rok: (delegate?.rok)!)
+        }
     }
     func setRok(rok: String){
         self.rok.setTitle(rok, for: UIControlState.normal)
@@ -95,7 +102,13 @@ class ViewController: UIViewController {
             self.setGroup(group: kierunek)
         }
     }
-    
+    @IBAction func selected(_ sender: Any) {
+        let viewController:LessonsViewController = self.delegate!
+        viewController.applySelection(kier: selectedkierunek, gr: selectedgroup, rok: selectedrok)
+        dismiss(animated: true, completion: nil)
+        
+    }
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "kierunek"{
@@ -114,7 +127,7 @@ class ViewController: UIViewController {
             viewController.what = "grupa"
             viewController.delegate = self
         }else if segue.identifier == "showlist"{
-            let viewController:ShowLessonsController = (segue.destination as? ShowLessonsController)!
+            let viewController:LessonsViewController = (segue.destination as? LessonsViewController)!
             viewController.xs = [:]
             var sched:[Schedule] = schedules.filter({$0.study == self.selectedkierunek && ($0.group == self.selectedgroup || $0.group == "1WA") && $0.year == self.selectedrok})
             sched.sort(by: {($0.when! < $1.when!)})
@@ -125,7 +138,6 @@ class ViewController: UIViewController {
                 }
                 (self.meetings[r.getWeekOfYear()])!.append(r)
             }
-            viewController.delegatectrl = self
             
             viewController.meetings = self.meetings
         }

@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "-  PLAN ZAJĘĆ  -"; ObjectID = "4bS-HF-j2a"; */
+"4bS-HF-j2a.text" = "-  PLAN ZAJĘĆ  -";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "Dbo-aP-LmP"; */
+"Dbo-aP-LmP.title" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Grupa"; ObjectID = "GIg-zj-HR8"; */
+"GIg-zj-HR8.normalTitle" = "Grupa";
+
+/* Class = "UIButton"; normalTitle = "Rok"; ObjectID = "H9i-HX-So8"; */
+"H9i-HX-So8.normalTitle" = "Rok";
+
+/* Class = "UIButton"; normalTitle = "Pokaż plan"; ObjectID = "M3X-gS-0Cp"; */
+"M3X-gS-0Cp.normalTitle" = "Pokaż plan";
+
+/* Class = "UIBarButtonItem"; title = "Filtruj"; ObjectID = "RLX-ng-Dhl"; */
+"RLX-ng-Dhl.title" = "Filtruj";
+
+/* Class = "UIButton"; normalTitle = "Kierunek"; ObjectID = "Ulc-js-5L7"; */
+"Ulc-js-5L7.normalTitle" = "Kierunek";
+
+/* Class = "UIBarButtonItem"; title = "Odwież"; ObjectID = "Yrf-Dp-fil"; */
+"Yrf-Dp-fil.title" = "WMI Plan Zajęć";
+
+/* Class = "UILabel"; text = "Wydział Matematyki i Informatyki UAM"; ObjectID = "bKB-Cv-cDN"; */
+"bKB-Cv-cDN.text" = "Wydział Matematyki i Informatyki UAM";
+
+/* Class = "UIButton"; normalTitle = "Odśwież dane"; ObjectID = "cU3-yG-UPk"; */
+"cU3-yG-UPk.normalTitle" = "Odśwież dane";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ywz-dQ-aun"; */
+"ywz-dQ-aun.normalTitle" = "Button";

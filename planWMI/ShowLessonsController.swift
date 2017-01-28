@@ -9,24 +9,30 @@
 import UIKit
 import Foundation
 import XLPagerTabStrip
+import Alamofire
+import SwiftDate
 
 
 class ShowLessonsController: ButtonBarPagerTabStripViewController{
-    var xs : [String :[Schedule]]?
+    @IBOutlet var bar: UINavigationBar!
     var delegatectrl : ViewController?
     var what: String?
+    var kierunki : [String] = []
+    var schedules : [Schedule] = []
     var meetings : [Int: [Schedule]] = [:]
+
     override func viewDidLoad() {
-        buttonBarView.backgroundColor = .white
-        settings.style.buttonBarBackgroundColor = .white
-        settings.style.selectedBarBackgroundColor = UIColor.brown
-        settings.style.selectedBarHeight = 1
-        settings.style.buttonBarItemBackgroundColor = .white
-        settings.style.buttonBarItemTitleColor = UIColor.darkGray
+
+                settings.style.buttonBarBackgroundColor = view.backgroundColor
+        settings.style.selectedBarBackgroundColor = view.tintColor
+        settings.style.selectedBarHeight = 4
+        settings.style.buttonBarItemBackgroundColor = view.backgroundColor
+        settings.style.buttonBarItemTitleColor = UIColor.lightGray
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
         super.viewDidLoad()
+
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = true
@@ -46,28 +52,30 @@ class ShowLessonsController: ButtonBarPagerTabStripViewController{
             let child_1 = ChildExampleViewController(itemInfo: "...")
             let child_2 = ChildExampleViewController(itemInfo: "...")
             tabs  = [child_1, child_2]
-            childViewControllers = [child_1, child_2]
+            
+            
         }else{
-            for key in meetings.keys.sorted()
+            let meet_groups = meetings.keys.sorted()
+            for key in meet_groups
             {
-                var el : ChildExampleViewController = ChildExampleViewController(itemInfo: IndicatorInfo(title: "\(key)"))
+                var s : DateInRegion = DateInRegion()
+                var el : ChildExampleViewController = ChildExampleViewController(itemInfo: IndicatorInfo(title: "\(meetings[key]![0].getShortDateString())"))
                 el.setItems(itms: meetings[key]!)
+
                 tabs.append(el)
             }
         }
         guard isReload else {
             return tabs
         }
-        for (index, _) in childViewControllers.enumerated(){
-            let nElements = childViewControllers.count - index
-            let n = (Int(arc4random()) % nElements) + index
-            if n != index{
-                swap(&childViewControllers[index], &childViewControllers[n])
-            }
-        }
-        let nItems = 1 + (arc4random() % 8)
-        return Array(childViewControllers.prefix(Int(nItems)))
+        childViewControllers = tabs
+
+        return tabs
+        
     }
+    
+    
+    
     
     override func reloadPagerTabStripView() {
         isReload = true
@@ -90,6 +98,7 @@ class ShowLessonsController: ButtonBarPagerTabStripViewController{
             var label : UITableView? = nil
             var itemInfo: IndicatorInfo = "View"
             var xs : [ String : [Schedule]] = [ : ]
+            var dts:[String] = []
             func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
                 return self.itemInfo
             }
@@ -103,47 +112,31 @@ class ShowLessonsController: ButtonBarPagerTabStripViewController{
             }
             func setItems(itms:[Schedule]){
                 for itm in itms{
-                    var dte : String  = itm.getDateString()
+                    let dte : String  = itm.getDateString()
                     if xs[dte] == nil{
                         xs[dte] = []
                     }
                     xs[dte]!.append(itm)
                 }
+                dts = (Array)(xs.keys).sorted()
                 self.label?.reloadData()
             }
             override func viewDidLoad() {
                 super.viewDidLoad()
                 
-                label = UITableView(frame: CGRect(x: 0, y: 150, width: self.view.frame.size.width, height: self.view.frame.height))
+                label = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.height))
                 
                 
                 
+                label?.backgroundColor = view.backgroundColor
                 view.addSubview(label!)
                 label?.dataSource = self
                 view.addConstraint(NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
                 view.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: -50))
             }
-            func  loadData(){
-                let URL = "https://wmitimetable.herokuapp.com/schedules.json"
-                Alamofire.request(URL).responseArray{ (response: DataResponse<[Schedule]>) in
-                    let resp = response.result.value
-                    if let resp = resp {
-                        for r in resp {
-                            if self.kierunki.contains(r.study!) == false{
-                                self.kierunki.append(r.study!)
-                            }
-                            self.schedules.append(r)
-                            
-                        }
-                        
-                        self.setKierunek(kierunek: self.kierunki[0])
-                    }
-                }
-            }
+
             func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                let keys = Array(xs.keys)
-                
-                let sekt = (Array)(keys)[section]
+                let sekt = dts[section]
                 var cnt : Int = 0
                 if xs[sekt] != nil {
                  cnt = (xs[sekt]?.count)!
@@ -152,25 +145,36 @@ class ShowLessonsController: ButtonBarPagerTabStripViewController{
             }
 
             func numberOfSections(in tableView: UITableView) -> Int {
-                return xs.keys.count
+                return dts.count
                 
             }
             func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-                let keys = Array(xs.keys)
-                
-                return keys[section]
+                return dts[section]
             }
-                
+            func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+                return 1
+            }
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
                 let nib = UINib(nibName: "CustomTableViewCell", bundle: nil)
                 label?.register(nib, forCellReuseIdentifier: "CustomTableViewCell")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
-                let keys = Array((xs.keys))
-                
-                cell.textLabel?.text = (xs [keys[indexPath.section]]?[indexPath.item].subject)!+" "+(xs [keys[indexPath.section]]?[indexPath.item].getHourString())!
-             //   cell.detailTextLabel?.text = xs [keys[indexPath.section]]?[indexPath.item].group
+                let kiz = dts[indexPath.section]
+                guard self.xs[kiz] != nil else {
+                    return cell
+                }
+                guard self.xs[kiz]![indexPath.item] != nil else {
+                    return cell
+                }
+                let keys = dts
+                cell.hour.text = (self.xs[keys[indexPath.section]]?[indexPath.item].getHourString())
+                cell.lesson.text = (self.xs [keys[indexPath.section]]?[indexPath.item].subject)!
+                cell.classroom.text = (self.xs [keys[indexPath.section]]?[indexPath.item].room1)!
+                cell.classroom1.text = (self.xs[keys[indexPath.section]]?[indexPath.item].room2)
+                //   cell.detailTextLabel?.t ext = xs [keys[indexPath.section]]?[indexPath.item].group
                 return cell
             }
-
+            func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+                view.tintColor = UIColor.blue
+            }
             
         }

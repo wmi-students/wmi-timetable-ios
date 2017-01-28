@@ -1,0 +1,6 @@
+framework module Pods_planWMI {
+  umbrella header "Pods-planWMI-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,8 +1,12 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
   - Alamofire (4.0.1)
   - AlamofireObjectMapper (4.0.0):
     - Alamofire (~> 4.0)
     - ObjectMapper (~> 2.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - Dollar (6.0.0)
   - ObjectMapper (2.1.0)
   - RxCocoa (3.0.0-beta.2):
@@ -12,8 +16,10 @@ PODS:
   - XLPagerTabStrip (6.0.0)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 2.2.0)
   - Alamofire (~> 4.0)
   - AlamofireObjectMapper (~> 4.0)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Dollar
   - ObjectMapper (~> 2.1)
   - RxCocoa (= 3.0.0-beta.2)
@@ -21,9 +27,20 @@ DEPENDENCIES:
   - SwiftDate (~> 4.0)
   - XLPagerTabStrip (= 6.0)
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Dollar: 6e69123e0901307d67a416dac70aeec56243a6e0
   ObjectMapper: e5e0f8aef8590fc2ddcde7f27eddb255863ee6e9
   RxCocoa: 1dd105d8a4e18034ccd7bd6d136445363ce67c8e
@@ -31,6 +48,6 @@ SPEC CHECKSUMS:
   SwiftDate: efdff69cf3750c2e4ef4fb9f0461e22b40c4c942
   XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: 4249f1a82111bdd28285eb34ca6de7b92b15ecd7
+PODFILE CHECKSUM: 44e4c4e11511da48f0dee428b7134dcfb1a0b35a
 
 COCOAPODS: 1.1.1

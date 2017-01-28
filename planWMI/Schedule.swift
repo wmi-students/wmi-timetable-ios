@@ -40,11 +40,12 @@ class Schedule : Mappable{
         when = dateFormatter.date(from: strdate)
     }
     func getDateString() -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
-        dateFormatter.dateFormat = "dd-MMM-yyyy"
-        return dateFormatter.string(from: when!)
+        return when!.string(format: .custom("DD MMMM YYYY"))
     }
+    func getShortDateString() -> String{
+        return when!.string(format: .custom("DD/MM"))
+    }
+    
     func getHourString() -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!

@@ -54,7 +54,7 @@ public protocol PagerTabStripDataSource: class {
 open class PagerTabStripViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet lazy open var containerView: UIScrollView! = { [unowned self] in
-        let containerView = UIScrollView(frame: CGRect(x: 0, y: 150, width: self.view.bounds.width, height: self.view.bounds.height-150))
+        let containerView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return containerView
     }()

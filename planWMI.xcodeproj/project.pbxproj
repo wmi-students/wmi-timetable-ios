@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420920431E3530CD001CE617 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420920421E3530CD001CE617 /* LessonsViewController.swift */; };
 		420EF3511E2D816300E89066 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EF34F1E2D816300E89066 /* CustomTableViewCell.swift */; };
 		420EF3521E2D816300E89066 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420EF3501E2D816300E89066 /* CustomTableViewCell.xib */; };
 		42AEB56F1E2EBC1100CC33E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AEB56D1E2EBC1100CC33E1 /* Main.storyboard */; };
@@ -42,6 +43,9 @@
 /* Begin PBXFileReference section */
 		14CEE81A38DE63AEA43C90E0 /* Pods-planWMI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planWMI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-planWMI/Pods-planWMI.debug.xcconfig"; sourceTree = "<group>"; };
 		1F8AF21D9331303ABAF23BC1 /* Pods-planWMI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planWMI.release.xcconfig"; path = "Pods/Target Support Files/Pods-planWMI/Pods-planWMI.release.xcconfig"; sourceTree = "<group>"; };
+		420920401E3528B0001CE617 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
+		420920411E3528B1001CE617 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		420920421E3530CD001CE617 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
 		420EF34F1E2D816300E89066 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableViewCell.swift; path = ../CustomTableViewCell.swift; sourceTree = "<group>"; };
 		420EF3501E2D816300E89066 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableViewCell.xib; path = ../CustomTableViewCell.xib; sourceTree = "<group>"; };
 		42AEB56E1E2EBC1100CC33E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,15 +137,16 @@
 			children = (
 				42AEB56D1E2EBC1100CC33E1 /* Main.storyboard */,
 				519684121DAFF36D00851452 /* AppDelegate.swift */,
-				519684141DAFF36D00851452 /* ViewController.swift */,
 				51B8EA5E1DB552BA00B6DE49 /* ShowLessonsController.swift */,
 				51B8EA5C1DB28A8300B6DE49 /* SelectKierunekController.swift */,
+				519684141DAFF36D00851452 /* ViewController.swift */,
 				420EF34F1E2D816300E89066 /* CustomTableViewCell.swift */,
 				420EF3501E2D816300E89066 /* CustomTableViewCell.xib */,
 				51C5DB521DB1326100D1C7F5 /* Schedule.swift */,
 				519684191DAFF36D00851452 /* Assets.xcassets */,
 				5196841B1DAFF36D00851452 /* LaunchScreen.storyboard */,
 				5196841E1DAFF36D00851452 /* Info.plist */,
+				420920421E3530CD001CE617 /* LessonsViewController.swift */,
 			);
 			path = planWMI;
 			sourceTree = "<group>";
@@ -254,7 +259,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 519684061DAFF36D00851452;
@@ -355,6 +359,7 @@
 				519684151DAFF36D00851452 /* ViewController.swift in Sources */,
 				519684131DAFF36D00851452 /* AppDelegate.swift in Sources */,
 				51B8EA5F1DB552BA00B6DE49 /* ShowLessonsController.swift in Sources */,
+				420920431E3530CD001CE617 /* LessonsViewController.swift in Sources */,
 				51B8EA5D1DB28A8300B6DE49 /* SelectKierunekController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +400,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				42AEB56E1E2EBC1100CC33E1 /* Base */,
+				420920401E3528B0001CE617 /* pl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5196841C1DAFF36D00851452 /* Base */,
+				420920411E3528B1001CE617 /* pl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -414,6 +421,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -464,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

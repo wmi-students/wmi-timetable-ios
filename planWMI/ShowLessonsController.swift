@@ -14,7 +14,7 @@ import SwiftDate
 
 
 class ShowLessonsController: ButtonBarPagerTabStripViewController{
-    @IBOutlet var bar: UINavigationBar!
+
     var delegatectrl : ViewController?
     var what: String?
     var kierunki : [String] = []
@@ -29,6 +29,10 @@ class ShowLessonsController: ButtonBarPagerTabStripViewController{
         settings.style.buttonBarItemBackgroundColor = view.backgroundColor
         settings.style.buttonBarItemTitleColor = UIColor.lightGray
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
+    
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
         super.viewDidLoad()
 
     }
@@ -36,6 +40,7 @@ class ShowLessonsController: ButtonBarPagerTabStripViewController{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,7 +128,6 @@ class ShowLessonsController: ButtonBarPagerTabStripViewController{
             }
             override func viewDidLoad() {
                 super.viewDidLoad()
-                
                 label = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.height))
                 
                 

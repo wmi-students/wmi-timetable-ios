@@ -10,6 +10,8 @@ target 'planWMI' do
   pod 'Dollar'
   pod 'XLPagerTabStrip', '6.0'
   pod 'SwiftDate', '~> 4.0'
+  pod 'YXJKxMenu'
   pod 'ActionSheetPicker-3.0', '~> 2.2.0'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+
 end

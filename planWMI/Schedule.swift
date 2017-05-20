@@ -40,10 +40,10 @@ class Schedule : Mappable{
         when = dateFormatter.date(from: strdate)
     }
     func getDateString() -> String{
-        return when!.string(format: .custom("DD MMMM YYYY"))
+        return when!.string(format: .custom("d MMMM YYYY"))
     }
     func getShortDateString() -> String{
-        return when!.string(format: .custom("DD/MM"))
+        return when!.string(format: .custom("d/MM"))
     }
     
     func getHourString() -> String{

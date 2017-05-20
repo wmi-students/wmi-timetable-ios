@@ -14,6 +14,7 @@ PODS:
   - RxSwift (3.0.0-beta.2)
   - SwiftDate (4.0.10)
   - XLPagerTabStrip (6.0.0)
+  - YXJKxMenu (0.0.1)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 2.2.0)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - RxSwift (= 3.0.0-beta.2)
   - SwiftDate (~> 4.0)
   - XLPagerTabStrip (= 6.0)
+  - YXJKxMenu
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -47,7 +49,8 @@ SPEC CHECKSUMS:
   RxSwift: 0ea939d7d97cb70657190ffde8dc2a9b455778fc
   SwiftDate: efdff69cf3750c2e4ef4fb9f0461e22b40c4c942
   XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
+  YXJKxMenu: b3f88831637a6b57a0e8c5db01e9f48803095d0f
 
-PODFILE CHECKSUM: 44e4c4e11511da48f0dee428b7134dcfb1a0b35a
+PODFILE CHECKSUM: 6ee2e729b3581b12a74cd41330222ab7a7a80ece
 
 COCOAPODS: 1.1.1

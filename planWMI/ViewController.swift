@@ -47,6 +47,7 @@ class ViewController: UIViewController{
     @IBOutlet weak var kierunek: UIButton!
     @IBOutlet weak var rok: UIButton!
     @IBOutlet weak var group: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
                 navigationController?.navigationBar.isHidden = true
@@ -105,9 +106,7 @@ class ViewController: UIViewController{
     @IBAction func selected(_ sender: Any) {
         let viewController:LessonsViewController = self.delegate!
         viewController.applySelection(kier: selectedkierunek, gr: selectedgroup, rok: selectedrok)
-        dismiss(animated: true, completion: nil)
-        
-    }
+        dismiss(animated: true, completion: nil)    }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
